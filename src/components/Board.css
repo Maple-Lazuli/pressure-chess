@@ -1,0 +1,32 @@
+.board {
+    margin: 0!important;
+}
+.ui .board .cell {
+    padding: 1px !important;
+    display: flex !important;
+    justify-content: center!important;
+    align-items: center!important;
+    border-style: solid !important;
+    border-color:black !important;
+    
+}
+.notcolored {
+    background-color: rgb(175, 255, 244);
+}
+
+.colored {
+    background-color: rgb(255, 144, 144);
+}
+.empty {
+
+}
+.selected {
+    border-style: solid;
+    border-color:red;
+    color: red;
+}
+.space {
+    visibility: hidden !important;
+}
+
+
