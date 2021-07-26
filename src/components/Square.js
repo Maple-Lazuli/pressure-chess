@@ -89,6 +89,9 @@ const Square = (props) => {
                 <i className="big circle outline icon space" index={`${props.index}`}></i>
                 <i className={`${pieces[props.position].icon} ${pieces[props.position].color}  piece`} index={`${props.index}`}></i>
             </i>
+            <span className='indexIndicator'>
+                {props.index}
+            </span>
         </div>
     );
 };

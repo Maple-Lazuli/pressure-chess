@@ -3,9 +3,29 @@ import React from 'react';
 import Board from './Board';
 import 'semantic-ui-css/semantic.min.css'
 class App extends React.Component {
+    state = {
+        message1: '',
+        message2: '',
+        message3: '',
+        message4: ''
+    }
 
+    updateMessage = (text) => {
+        this.setState({
+            message1: this.state.message2,
+        }, () => {
+            this.setState({
+                message2: this.state.message3
+            }, () => {
+                this.setState({
+                    message3: this.state.message4
+                }, () => {
+                    this.setState({ message4: text })
+                })
+            })
+        })
+    }
 
-    
     render() {
         return (
 
@@ -26,17 +46,27 @@ class App extends React.Component {
                     <a className="item">
                         <i className="calendar icon"></i>
                         History
-                    </a>                    
+                    </a>
                     <br />
-                    <p>
-                        Consolelog
+                    <p style={{ color: "lightblue" }}>
+                        {this.state.message4}
                     </p>
+                    <p style={{ color: "lightgrey" }}>
+                        {this.state.message3}
+                    </p>
+                    <p style={{ color: "darkgrey" }}>
+                        {this.state.message2}
+                    </p>
+                    <p style={{ color: "grey" }}>
+                        {this.state.message1}
+                    </p>
+
                 </div>
                 <div className="pusher">
                     <div className="ui basic segment">
-                        <h3 className="ui header">Application Content</h3>
+                        <h3 className="ui header">Chess Pressure Tool</h3>
                         <div className="ui container" style={{ margin: '10px' }}>
-                            <Board />
+                            <Board updateMessage={this.updateMessage} />
                         </div>
                     </div>
                 </div>
