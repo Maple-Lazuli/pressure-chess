@@ -7,7 +7,7 @@ import Square from './Square';
 class Board extends React.Component {
     state = {
         active: false,
-        selected: null,
+        selection: 0,
         squares: null,
         positions: [
             '1', '2', '3', '4', '5', '6', '2', '1',
@@ -24,19 +24,22 @@ class Board extends React.Component {
     onSelection = (event) => {
         const current = event.target.attributes.index.nodeValue
         if (!this.state.active) {
-            this.setState({ active: true, selected: current })
-            console.log(`active with ${this.state.selected}`)
-        } else if ((this.state.active) && (this.state.selected !== current)) {
+            this.setState({ active: true})
+            this.setState({ selection: current })
+            console.log(`active with ${current}`)
+        } else if ((this.state.active) && (this.state.selection !== current)) {
             let temp = this.state.positions
-            temp[current] = temp[this.state.selected]
-            temp[this.state.selected] = '0'
-            this.setState({ positions: temp })
-            console.log(`replace ${this.state.selected} with ${current}`)
-            this.setState({ selected: null, active: false })
-        } else if ((this.state.active) && (this.state.selected === current)) {
-            this.setState({ selected: null, active: false })
-            console.log(`deselected`)
+            temp[current] = temp[this.state.selection]
+            temp[this.state.selection] = '0'
+            this.setState({ positions: temp }, () =>
+            console.log(this.state.positions))
+            console.log(`replace ${this.state.selection} with ${current}`)
+            this.setState({ selection: 0, active: false })
+        } else if ((this.state.active) && (this.state.selection === current)) {
+            this.setState({ selection: 0, active: false })
+            console.log(`deselected ${current}`)
         }
+
     }
 
     componentDidUpdate = () => {
@@ -48,7 +51,7 @@ class Board extends React.Component {
                 //${((index+1+rowOffset)%2 === 0)? 'empty': 'empty'}
             }
             return (
-                <Grid.Column index={index} key={index + 1} onClick={this.onSelection} className={`cell  ${this.state.selected === (index.toString()) ? 'selected' : 'notselected'}`}>
+                <Grid.Column index={index} key={index + 1} onClick={this.onSelection} className={`cell `}>
                     <Square index={index} position={this.state.positions[index]} scolor={((index + 1 + rowOffset) % 2 === 0) ? 'notcolored' : 'colored'} />
                 </Grid.Column>
             )
@@ -64,7 +67,7 @@ class Board extends React.Component {
                 //${((index+1+rowOffset)%2 === 0)? 'empty': 'empty'}
             }
             return (
-                <Grid.Column index={index} key={index + 1} onClick={this.onSelection} className={`cell  ${this.state.selected === (index.toString()) ? 'selected' : 'notselected'}`}>
+                <Grid.Column index={index} key={index + 1} onClick={this.onSelection} className={`cell`}>
                     <Square index={index} position={this.state.positions[index]} scolor={((index + 1 + rowOffset) % 2 === 0) ? 'notcolored' : 'colored'} />
                 </Grid.Column>
             )

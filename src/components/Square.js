@@ -88,8 +88,8 @@ const Square = (props) => {
             <i className="huge icons" index={`${props.index}`}>
                 <i className="big circle outline icon space" index={`${props.index}`}></i>
                 <i className={`${pieces[props.position].icon} ${pieces[props.position].color}  piece`} index={`${props.index}`}></i>
-                </i>
+            </i>
         </div>
-            );
+    );
 };
 export default Square;
