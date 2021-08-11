@@ -82,9 +82,19 @@ const pieces = {
     },
 }
 
+const color = (base,weight) => {
+    if (base <0) {
+        return `rgba(255,0,0,${weight})`
+    } else if (base > 0) {
+        return `rgba(0,0,255,${weight})`
+    } else {
+        return ""
+    }
+}
+
 const Square = (props) => {
     return (
-        <div index={`${props.index}`}>
+        <div index={`${props.index}`}style={{backgroundColor: `${props.colorVal}`}}>
             <i className="huge icons" index={`${props.index}`}>
                 <i className="big circle outline icon space" index={`${props.index}`}></i>
                 <i className={`${pieces[props.position].icon} ${pieces[props.position].color}  piece`} index={`${props.index}`}></i>

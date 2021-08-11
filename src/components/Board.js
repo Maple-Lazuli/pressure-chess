@@ -22,16 +22,76 @@ class Board extends React.Component {
             '10', '10', '10', '10', '10', '10', '10', '10',
             '11', '12', '13', '14', '15', '16', '12', '11'
         ],
-        weights: [
-            '0', '0', '0', '0', '0', '0', '0', '0',
-            '0', '0', '0', '0', '0', '0', '0', '0',
-            '0', '0', '0', '0', '0', '0', '0', '0',
-            '0', '0', '0', '0', '0', '0', '0', '0',
-            '0', '0', '0', '0', '0', '0', '0', '0',
-            '0', '0', '0', '0', '0', '0', '0', '0',
-            '0', '0', '0', '0', '0', '0', '0', '0',
-            '0', '0', '0', '0', '0', '0', '0', '0'
+        base: [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0
         ],
+        base_individual: [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0
+        ],
+        base_relative: [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0
+        ],
+        val: [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0
+        ],
+        val_individual: [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0
+        ],
+        val_relative: [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0
+        ],
+        weights: [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0
+        ]
     };
 
 
@@ -42,7 +102,18 @@ class Board extends React.Component {
                 positions: this.state.positions.toString()
             }
         });
-        this.setState({ res: response.content }, () => this.props.updateMessage(`Server Response: ${response.content}`))
+        this.setState({ res: response.status}, () => {
+            this.props.updateMessage(`Server Response: ${response.status}`)
+            console.log(response)
+            this.setState({
+                base: response.data.base['0'],
+                base_individual: response.data.base_individual['0'],
+                base_relative: response.data.base_relative['0'],
+                val: response.data.base['0'],
+                val_individual: response.data.val_individual['0'],
+                val_relative: response.data.val_relative['0'],
+            }, () => {this.setState({weights: this.state.val_relative})})
+        })
     }
 
     onSelection = (event) => {
@@ -76,32 +147,36 @@ class Board extends React.Component {
     }
 
     // componentDidUpdate = () => {
-    //     var rowOffset = 0
-    //     const boardIDs = [...Array(64).keys()];
-    //     const squares = boardIDs.map((index) => {
-    //         if ((index) % 8 === 0) {
-    //             rowOffset += 1;
-    //             //${((index+1+rowOffset)%2 === 0)? 'empty': 'empty'}
-    //         }
-    //         return (
-    //             <Grid.Column index={index} key={index + 1} onClick={this.onSelection} className={`cell `}>
-    //                 <Square index={index} position={this.state.positions[index]} scolor={((index + 1 + rowOffset) % 2 === 0) ? 'notcolored' : 'colored'} />
-    //             </Grid.Column>
-    //         )
-    //     });
+    //     return <Grid compact columns={8} className={'board'}>{this.help()}</Grid>
     // }
+
+
 
     help = () => {
         var rowOffset = 0
+        var base = 0
+        var weight = 0
+        var colorval = ""
         const boardIDs = [...Array(64).keys()];
         const squares = boardIDs.map((index) => {
             if ((index) % 8 === 0) {
                 rowOffset += 1;
                 //${((index+1+rowOffset)%2 === 0)? 'empty': 'empty'}
             }
+            base = this.state.base[index]
+            weight = this.state.weights[index]
+            colorval = `rgba(0,0,0,0)`
+            console.log(`color starting`)
+            if (base < 0) {
+                colorval = `rgba(255,0,0,${weight})`
+                console.log(`color red ${colorval}`)
+            } if (base > 0) {
+                colorval = `rgba(0,0,255,${weight})`
+                console.log(`color blue ${colorval}`)
+            } 
             return (
                 <Grid.Column index={index} key={index + 1} onClick={this.onSelection} className={`cell`}>
-                    <Square index={index} position={this.state.positions[index]} scolor={((index + 1 + rowOffset) % 2 === 0) ? 'notcolored' : 'colored'} />
+                    <Square index={index} colorVal ={colorval} position={this.state.positions[index]} scolor={((index + 1 + rowOffset) % 2 === 0) ? 'notcolored' : 'colored'} />
                 </Grid.Column>
             )
         });
