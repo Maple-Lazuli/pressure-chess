@@ -44,3 +44,6 @@ and pressure visualizations for the users.
 
 <img src="images/running.png"/>
 
+The server messages tell you what the application is doing and the recommendations tell you which moves will maximize 
+pressures and which moves are categorized as the best by the machine learning model.
+
