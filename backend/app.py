@@ -1,14 +1,13 @@
 from flask import Flask, request, Response
 from flask_cors import CORS
-import pandas as pd
-import chess as chess
-from scipy import stats
+import chess_funcs as chess
 import numpy as np
 import json
 
 app = Flask(__name__)
 CORS(app)
 app.config["DEBUG"] = True
+model_name = './backend/chess_1000_10_redux'
 
 
 @app.route("/", methods=["GET"])
@@ -16,19 +15,31 @@ def root():
     # get positions from the web app
     message = request.args.get('positions')
     message = message.split(',')
-    for i in range(len(message)):
+    for i in range(0, len(message)):
         message[i] = int(message[i])
     positions = np.array(message).reshape((8, 8))
-    print(positions)
-    base, val = chess.boardEval(positions)
+    base, val = chess.board_eval(positions)
+    white_move, white_distro, white_move_ml, white_distro_ml = chess.recommend_white(
+        chess.create_board_from_positions(positions), model_name)
+    black_move, black_distro, black_move_ml, black_distro_ml = chess.recommend_black(
+        chess.create_board_from_positions(positions), model_name)
+
     return_json = {
-        "base_relative": chess.calculateRelativeColorPercentiles(base).reshape((1, 64)).tolist(),
-        "base_individual": chess.calculateIndividualColorPercentiles(base).reshape((1, 64)).tolist(),
-        "val_relative": chess.calculateRelativeColorPercentiles(val).reshape((1, 64)).tolist(),
-        "val_individual": chess.calculateIndividualColorPercentiles(val).reshape((1, 64)).tolist(),
+        "base_relative": chess.calculate_relative_color_percentiles(base).reshape((1, 64)).tolist(),
+        "base_individual": chess.calculate_individual_color_percentiles(base).reshape((1, 64)).tolist(),
+        # val_relative is normalized to color the cells
+        "val_relative": chess.calculate_relative_color_percentiles(val).reshape((1, 64)).tolist(),
+        "val_individual": chess.calculate_individual_color_percentiles(val).reshape((1, 64)).tolist(),
         "base": base.reshape((1, 64)).tolist(),
         "val": val.reshape((1, 64)).tolist(),
-
+        'white_move': white_move,
+        'white_distro': white_distro,
+        'white_move_ml': white_move_ml,
+        'white_distro_ml': white_distro_ml,
+        'black_move': black_move,
+        'black_distro': black_distro,
+        'black_move_ml': black_move_ml,
+        'black_distro_ml': black_distro_ml,
     }
 
     return Response(json.dumps(return_json), status=200, mimetype='application/json')

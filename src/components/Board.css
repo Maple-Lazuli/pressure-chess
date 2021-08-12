@@ -64,4 +64,10 @@
     left: 5px !important;
 }
 
+.chessPosition {
+    position: absolute !important;
+    bottom: 3px !important;
+    right: 5px !important;
+}
+
 

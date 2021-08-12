@@ -11,6 +11,14 @@ class Board extends React.Component {
     state = {
         active: false,
         selection: 0,
+        white_move: "",
+        white_distro: "",
+        white_move_ml: "",
+        white_distro_ml: "",
+        black_move: "",
+        black_distro: "",
+        black_move_ml: "",
+        black_distro_ml: "",
         squares: null,
         positions: [
             '1', '2', '3', '4', '5', '6', '2', '1',
@@ -112,7 +120,27 @@ class Board extends React.Component {
                 val: response.data.base['0'],
                 val_individual: response.data.val_individual['0'],
                 val_relative: response.data.val_relative['0'],
-            }, () => {this.setState({weights: this.state.val_relative})})
+                white_move: response.data.white_move,
+                white_distro: response.data.white_distro,
+                white_move_ml: response.data.white_move_ml,
+                white_distro_ml: response.data.white_distro_ml,
+                black_move: response.data.black_move,
+                black_distro: response.data.black_distro,
+                black_move_ml: response.data.black_move_ml,
+                black_distro_ml: response.data.black_distro_ml,
+            }, () => {
+                this.props.updateMoves([
+                    this.state.white_move,
+                    this.state.white_distro,
+                    this.state.white_move_ml,
+                    this.state.white_distro_ml,
+                    this.state.black_move,
+                    this.state.black_distro,
+                    this.state.black_move_ml,
+                    this.state.black_distro_ml
+                ]);
+                this.setState({weights: this.state.val_relative});
+            })
         })
     }
 
