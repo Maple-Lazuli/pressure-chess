@@ -7,7 +7,7 @@ import json
 app = Flask(__name__)
 CORS(app)
 app.config["DEBUG"] = True
-model_name = './backend/chess_1000_10_redux'
+model_name = './backend/chess_10000_10_redux'
 
 
 @app.route("/", methods=["GET"])
