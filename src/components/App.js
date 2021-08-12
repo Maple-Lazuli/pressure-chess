@@ -79,18 +79,18 @@ class App extends React.Component {
 
                     <div class="ui small message red">
                         <div class="ui list" >
-                            <div class="item" style={{ color: "red" }}><b>Pressure Move:</b>  {this.state.white_move}</div>
-                            <div class="item" style={{ color: "red" }}><b>Pressure Result:</b> {this.state.white_distro}</div>
-                            <div class="item" style={{ color: "red" }}><b>ML Move:</b> {this.state.white_move_ml}</div>
-                            <div class="item" style={{ color: "red" }}><b>ML Rating:</b> {this.state.white_distro_ml}</div>
+                            <div class="item" style={{ color: "red" }}><b>Pressure Move:</b> {this.state.black_move}</div>
+                            <div class="item" style={{ color: "red" }}><b>Pressure Result:</b> {this.state.black_distro}</div>
+                            <div class="item" style={{ color: "red" }}><b>ML Move:</b> {this.state.black_move_ml}</div>
+                            <div class="item" style={{ color: "red" }}><b>ML Rating:</b> {this.state.black_distro_ml}</div>
                         </div>
                     </div>
                     <div class="ui small message teal">
                         <div class="ui list" >
-                            <div class="item" style={{ color: "blue" }}><b>Pressure Move:</b> {this.state.black_move}</div>
-                            <div class="item" style={{ color: "blue" }}><b>Pressure Result:</b> {this.state.black_distro}</div>
-                            <div class="item" style={{ color: "blue" }}><b>ML Move:</b> {this.state.black_move_ml}</div>
-                            <div class="item" style={{ color: "blue" }}><b>ML Rating:</b> {this.state.black_distro_ml}</div>
+                            <div class="item" style={{ color: "blue" }}><b>Pressure Move:</b>  {this.state.white_move}</div>
+                            <div class="item" style={{ color: "blue" }}><b>Pressure Result:</b> {this.state.white_distro}</div>
+                            <div class="item" style={{ color: "blue" }}><b>ML Move:</b> {this.state.white_move_ml}</div>
+                            <div class="item" style={{ color: "blue" }}><b>ML Rating:</b> {this.state.white_distro_ml}</div>
                         </div>
                     </div>
 

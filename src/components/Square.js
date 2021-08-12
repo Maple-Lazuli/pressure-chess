@@ -108,10 +108,10 @@ const Square = (props) => {
                 <i className="big circle outline icon space" index={`${props.index}`}></i>
                 <i className={`${pieces[props.position].icon} ${pieces[props.position].color}  piece`} index={`${props.index}`}></i>
             </i>
-            <span className='indexIndicator' style={{color: 'gray'}}>
+            <span className='indexIndicator'>
                 {props.index}
             </span>
-            <span className='chessPosition' style={{color: 'gray'}}>
+            <span className='chessPosition'>
                 {chessIndex[parseInt(props.index)]}
             </span>
         </div>
