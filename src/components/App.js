@@ -52,10 +52,7 @@ class App extends React.Component {
 
             <div className="ui bottom attached segment pushable">
                 <div className="ui visible inverted left vertical sidebar menu">
-                    <a className="item">
-                        <i className="home icon"></i>
-                        About
-                    </a>
+                    <br />
                     <div class="ui medium yellow header">System Messages</div>
                     <br />
                     <p style={{ color: "lightyellow" }}>

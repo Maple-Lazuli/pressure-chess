@@ -1,71 +1,46 @@
-# Getting Started with Create React App
+# Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application has two parts: A ReactJS app for the front end and a Python Flask app as the back end. To use this
+app, both the ReactJS and Python app need to be running.
 
-## Available Scripts
+## Setting up Node and ReactJS
 
-In the project directory, you can run:
+Start by ensuring __nodeJS__ is installed. Once __nodeJS__ is installed, clone this repo to your machine then run the following 
+command to install the packages.
+```
+npm install
+```
 
-### `npm start`
+Assuming there are no issue installing the required packages, run the following command to start the react app.
+```
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+After executing the command, the font end should start and this webpage will be shown
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img src="images/start.png"/>
 
-### `npm test`
+## Setting up Python and Flask
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The python flask app performs all the heavy calculations. Start by verifying  __python 3.9__ and _pip_ are installed then 
+execute the following command
 
-### `npm run build`
+```
+pip install -r requirements.txt
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This will install the required packages for the application. Next start the application _from the project directory_ by 
+executing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+python backend/app.py
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Usage
 
-### `npm run eject`
+Use the app by clicking a piece then clicking where that piece should be moved to. When doing this, the front end will
+send the data to backend to perform some calculations. These calculations will be returned in the form of move recommendations
+and pressure visualizations for the users.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src="images/running.png"/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# pressure-chess
