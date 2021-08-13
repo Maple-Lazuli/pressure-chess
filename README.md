@@ -5,8 +5,8 @@
 The following subsections contain instructions to install the app on a local machine and start the application.
 
 ### 1. Pull The Repository
-Use __git clone https://github.com/Maple-Lazuli/Disaster-Message-Categorization.git__ in the terminal 
-to make a copy on the local machine or navigate to the repository directly on github [here](https://github.com/Maple-Lazuli/Disaster-Message-Categorization.git) 
+Use __git clone https://github.com/Maple-Lazuli/pressure-chess.git__ in the terminal 
+to make a copy on the local machine or navigate to the repository directly on github [here](https://github.com/Maple-Lazuli/pressure-chess.git) 
 and download the project as an archive.
 
 ### 2. Create The Virtual Environment For Python
@@ -25,8 +25,7 @@ In the root of the project directory, execute one of the following command seque
    
 ### Install The Python Requirements
 Execute __pip install -r requirements.txt__ in the terminal from the root project directory to have pip
-install all the dependencies used by this project.
-http://localhost:3000/
+
 
 ### Setup NodeJS and ReactJS
 Start by ensuring __nodeJS__ is installed. Once __nodeJS__ is installed, clone this repo to your machine then run the following 
