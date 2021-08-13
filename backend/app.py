@@ -41,6 +41,8 @@ def root():
         'black_move_ml': black_move_ml,
         'black_distro_ml': black_distro_ml,
     }
+    print(val)
+    print(base)
 
     return Response(json.dumps(return_json), status=200, mimetype='application/json')
 
