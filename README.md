@@ -61,7 +61,7 @@ pressures and which moves are categorized as the best by the machine learning mo
 ## Acknowledgements
 The following sources were crucial to the development of this project
 1. __Udacity__ - Udacity's Data Scientist course helped me greatly with the machine learning concepts.
-2. __Chess__ - The Chess package was used to help create permutations of movesd available to the players.
+2. __Chess__ - The Chess package was used to help create permutations of moves available to the players.
 3. __scikit-learn__ - scikit-learn was used for the processing portions of this project.
 4. __Tensorflow__ - Keras and Tensorflow were used to create, compile, and fit the model.
 5. __Flask__ - Flask was used to get the classifications and matrices to the NodeJS app for displaying to the user.
