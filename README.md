@@ -1,4 +1,8 @@
-# Getting Started
+## Background
+[Checkout my post on Medium for the background on this project and how it performs](https://ada-lazi.medium.com/lstm-for-winning-chess-moves-14db0402a989)
+
+
+## Getting Started
 
 This application has two parts: A ReactJS app for the front end and a Python Flask app as the back end. To use this
 app, both the ReactJS and Python app need to be running.
@@ -36,7 +40,7 @@ executing
 python backend/app.py
 ```
 
-# Usage
+## Usage
 
 Use the app by clicking a piece then clicking where that piece should be moved to. When doing this, the front end will
 send the data to backend to perform some calculations. These calculations will be returned in the form of move recommendations
