@@ -4,12 +4,12 @@
 ## Getting Started:
 The following subsections contain instructions to install the app on a local machine and start the application.
 
-### 1. Pull The Repository
+### Pull The Repository
 Use __git clone https://github.com/Maple-Lazuli/pressure-chess.git__ in the terminal 
 to make a copy on the local machine or navigate to the repository directly on github [here](https://github.com/Maple-Lazuli/pressure-chess.git) 
 and download the project as an archive.
 
-### 2. Create The Virtual Environment For Python
+### Create The Virtual Environment For Python
 In the root of the project directory, execute one of the following command sequences based on the OS in use:
 1. __Linux/macOS:__
    
