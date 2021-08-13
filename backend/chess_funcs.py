@@ -630,15 +630,14 @@ def create_board_from_positions(position):
     return board
 
 
-def recommend_black(board, model_name):
+def recommend_black(board, model):
     """
     Uses a learned model and a chess board object to recommend the move that maximizes pressure and the 'winning'
     move categorized by the model
+    :param model: The model for classification
     :param board: Loaded Chess Board Object
-    :param model_name: The name of the model to use
     :return: Move to maximize pressure, pressure of that move, ML recommended move, Model classification for that move
     """
-    model = tf.keras.models.load_model(model_name + '.h5')
     board.turn = chess.BLACK
     moves = board.legal_moves
     rec_list = []
@@ -672,15 +671,14 @@ def recommend_black(board, model_name):
     return rec, rec_val, rec_ml, abs(rec_val_ml)
 
 
-def recommend_white(board, model_name):
+def recommend_white(board, model):
     """
     Uses a learned model and a chess board object to recommend the move that maximizes pressure and the 'winning'
     move categorized by the model
+    :param model: The model for classification
     :param board: Loaded Chess Board Object
-    :param model_name: The name of the model to use
     :return: Move to maximize pressure, pressure of that move, ML recommended move, Model classification for that move
     """
-    model = tf.keras.models.load_model(model_name + '.h5')
     board.turn = chess.WHITE
     moves = board.legal_moves
     rec_list = []

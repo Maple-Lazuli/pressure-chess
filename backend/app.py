@@ -1,6 +1,7 @@
 from flask import Flask, request, Response
 from flask_cors import CORS
 import chess_funcs as chess
+import tensorflow as tf
 import numpy as np
 import json
 
@@ -8,6 +9,7 @@ app = Flask(__name__)
 CORS(app)
 app.config["DEBUG"] = True
 model_name = './backend/chess_10000_10_redux'
+model = tf.keras.models.load_model(model_name + '.h5')
 
 
 @app.route("/", methods=["GET"])
@@ -20,9 +22,9 @@ def root():
     positions = np.array(message).reshape((8, 8))
     base, val = chess.board_eval(positions)
     white_move, white_distro, white_move_ml, white_distro_ml = chess.recommend_white(
-        chess.create_board_from_positions(positions), model_name)
+        chess.create_board_from_positions(positions), model)
     black_move, black_distro, black_move_ml, black_distro_ml = chess.recommend_black(
-        chess.create_board_from_positions(positions), model_name)
+        chess.create_board_from_positions(positions), model)
 
     return_json = {
         "base_relative": chess.calculate_relative_color_percentiles(base).reshape((1, 64)).tolist(),
