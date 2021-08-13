@@ -40,7 +40,7 @@ From the root directory of the project, execute
 ```
 python backend/app.py
 ```
-#### Starting The Node Frontend (part 1)
+#### Starting The Node Frontend (part 2)
 From the root directory of the project, execute
 ```
 npm start
