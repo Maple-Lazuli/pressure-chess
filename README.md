@@ -68,3 +68,4 @@ The following sources were crucial to the development of this project
 6. __Numpy__ - Numpy was used for numerical computations in the extraction and transformation portion of this project
 7. __Pandas__ - Pandas was used for data analysis in the exploratory, extraction, and transformation portions of this project.
 8. __ReactJS__ - ReactJS was used to build the interface and manage the interactive elements of the page.
+9. __Stockfish__ - Stockfish was used to assess the effectiveness of moves.
